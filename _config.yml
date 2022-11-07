@@ -1,9 +1,9 @@
 # main text of home
 title: Diego M. Arribas
-bio: Physicist turned neuroscientist turned machine learning practitioner
+bio: Physicist turned neuroscientist turned machine learning practitioner. Consistent mate drinker.
 
 # twitter summary info
-description: A blog about technology and stuff related
+description: Personal webpage of Diego M. Arribas
 
 # if it's an external image, update below for true
 # better with square images
@@ -17,8 +17,8 @@ dark-theme: auto
 # If you want to include your resume, set to true
 # and specify source (external or local).
 resume: true
-resume-external: true
-resume-url: https://google.com/?q=my+resume
+resume-external: local
+resume-url: /assets/arribas_cv.pdf
 
 url: https://diegoarri91.github.io/indigo
 
@@ -38,21 +38,15 @@ disqus:
 # instagram: myinstagram
 linkedin: https://www.linkedin.com/in/diego-m-arribas
 github: https://github.com/diegoarri91
+googlescholar: UxIKx50AAAAJ
 # email: myemail@gmail.com
 
 authors:
-  johndoe:
-    name: John Doe
+  diegoarri91:
+    name: Diego M. Arribas
     bio: A Man who travels the world eating noodles
     external-image: false
     picture: assets/images/profile.jpg
-    twitter: johndoe
-  jamesfoster:
-    name: James Foster
-    bio: A Man who develops software with coffee
-    external-image: false
-    picture: assets/images/james.jpg
-    twitter: jamesfoster
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
@@ -71,7 +65,7 @@ pagination:
 # projects: true
 
 # if you don't need "about" or "blog", comment them out below
-about: true
+# about: true
 # blog: true
 
 # do you want to show the "read time" of the posts?
