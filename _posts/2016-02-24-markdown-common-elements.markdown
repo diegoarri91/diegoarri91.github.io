@@ -1,5 +1,5 @@
 ---
-title: "Markdown Common Elements"
+title: "On Generalized Linear Models"
 layout: post
 date: 2016-02-24 22:44
 image: /assets/images/markdown.jpg
@@ -9,19 +9,18 @@ tag:
 - elements
 star: true
 category: blog
-author: johndoe
+author: diegoarri91
 description: Markdown summary with different options
 ---
 
-## Basic formatting
+# On Generalized Linear Models
 
-This note **demonstrates** some of what [Markdown][1] is *capable of doing*.
+If you have some basic background on statistics/machine learning you probably know about linear models, i.e. models that
+are linear combinations of their inputs/predictors/features,
 
-And that's how to do it.
-
-{% highlight html %}
-This note **demonstrates** some of what [Markdown][some/link] is *capable of doing*.
-{% endhighlight %}
+$$
+y(\textbf{x}) = \textbf{w} \textbf{x}
+$$
 
 ---
 
