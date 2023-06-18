@@ -9,24 +9,24 @@
     <meta name=author content="Diego M. Arribas">
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>On Generalized Linear Models | Diego M. Arribas</title>
+<title>Fklearn for functional machine learning | Diego M. Arribas</title>
 <meta name="generator" content="Jekyll v3.9.2" />
-<meta property="og:title" content="On Generalized Linear Models" />
+<meta property="og:title" content="Fklearn for functional machine learning" />
 <meta name="author" content="diegoarri91" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Markdown summary with different options" />
-<meta property="og:description" content="Markdown summary with different options" />
-<link rel="canonical" href="http://localhost:4000/markdown-common-elements/" />
-<meta property="og:url" content="http://localhost:4000/markdown-common-elements/" />
+<meta name="description" content="fklearn introduction" />
+<meta property="og:description" content="fklearn introduction" />
+<link rel="canonical" href="http://localhost:4000/fklearn/" />
+<meta property="og:url" content="http://localhost:4000/fklearn/" />
 <meta property="og:site_name" content="Diego M. Arribas" />
 <meta property="og:image" content="http://localhost:4000/assets/images/markdown.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-02-24T22:44:00-03:00" />
+<meta property="article:published_time" content="2023-06-14T00:00:00-03:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="http://localhost:4000/assets/images/markdown.jpg" />
-<meta property="twitter:title" content="On Generalized Linear Models" />
+<meta property="twitter:title" content="Fklearn for functional machine learning" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"diegoarri91"},"dateModified":"2016-02-24T22:44:00-03:00","datePublished":"2016-02-24T22:44:00-03:00","description":"Markdown summary with different options","headline":"On Generalized Linear Models","image":"http://localhost:4000/assets/images/markdown.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/markdown-common-elements/"},"url":"http://localhost:4000/markdown-common-elements/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"diegoarri91"},"dateModified":"2023-06-14T00:00:00-03:00","datePublished":"2023-06-14T00:00:00-03:00","description":"fklearn introduction","headline":"Fklearn for functional machine learning","image":"http://localhost:4000/assets/images/markdown.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/fklearn/"},"url":"http://localhost:4000/fklearn/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -52,7 +52,7 @@
 <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
 
 
-    <link rel="canonical" href="http://localhost:4000/markdown-common-elements/">
+    <link rel="canonical" href="http://localhost:4000/fklearn/">
     <link rel="alternate" type="application/rss+xml" title="Diego M. Arribas" href="http://localhost:4000/feed.xml" />
 
     <script src="https://kit.fontawesome.com/d9b09040a7.js" crossorigin="anonymous"></script>
@@ -793,15 +793,15 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
 
 
-<h1 class="title">On Generalized Linear Models</h1>
+<h1 class="title">Fklearn for functional machine learning</h1>
 
 <span class="date">
-    <time datetime="24-02-2016">Wednesday. February 24, 2016</time>
+    <time datetime="14-06-2023">Wednesday. June 14, 2023</time>
      - <span class="reading-time" title="Estimated read time">
     
 
     
-        3 mins
+        5 mins
     
 </span>
 
@@ -817,26 +817,31 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
     </div>
 
 
-<h1 id="on-generalized-linear-models">On Generalized Linear Models</h1>
+<h1 id="fklearn-for-functional-machine-learning">fklearn for functional machine learning</h1>
 
-<p>If you have some basic background on statistics/machine learning you probably know about linear models, i.e. models that
-are linear combinations of their inputs/predictors/features,</p>
+<p>Machine learning models meant to be used in production need to rely on consistent data pipelines and reproducible predictions. The pipeline when training the model should match the pipelines used to validate our predictions, score unseen data and generate monitorings. Guaranteeing this consistency is not trivial, as these pipelines can involve many (pre-) processing steps and can be executed in different ways (script, Jupyter notebook). Often, exploratory analysis and validations are performed in Jupyter notebooks where the interactive non-sequential evaluation of cells is prone to yield non-reproducible results. For example, inadvertently running the same cell twice will not necessarily yield the same result as objects can be mutated, also affecting the results of other cells.</p>
 
-\[y(\textbf{x}) = \textbf{w} \textbf{x}\]
+<p>Instead, functional programming emphasizes the use of pure functions, their outputs are deterministic and depend only on their inputs. They don’t have any side effects, they do not mutate values or modify data in place. Following this ideas, fklearn is a library that relies on functional programming to help build machine learning pipelines that emphasize consistency and reproducibility in the ways described above. Moreover, by passing functions as arguments and composing them, we can easily build elaborate but flexible declarative pipelines.</p>
 
-<hr />
+<p>Having said that, fklearn is not about providing new implementations of common machine learning models. fklearn actually depends on scikit-learn and uses scikit-learn’s implementations of many models, often acting just as a “functional wrapper” around them. Another interesting distinction is that fklearn uses pandas DataFrame as its main data structure (instead of NumPy’s array-like). This allows to leverage pandas capabilities to handle columns with different data types (strings, dates), process data (wrangling, filtering, sorting) and generate useful and meaningful outputs (grouping, aggregating). Let’s start with a comparison betwen how we would fit a simple model in scikit-learn and in fklearn.</p>
 
-<h2 id="headings">Headings</h2>
+<h2 id="fklearn-and-scikit-learn-learner-functions-and-baseestimator">Fklearn and Scikit-learn. Learner functions and BaseEstimator</h2>
 
-<p>There are six levels of headings. They correspond with the six levels of HTML headings. You’ve probably noticed them already in the page. Each level down uses one more hash character. But we are using just 4 of them.</p>
+<p>Let’s say we have some tabular training data in a pandas DataFrame to which we want to fit a logistic regression. A typical flow in scikit-learn would involve instantiating the logistic regression <a href="https://scikit-learn.org/stable/glossary.html#term-estimators">estimator</a> and invoking its fit method applied to the training data, setting the estimator parameters.</p>
 
-<h1 id="headings-can-be-small">Headings can be small</h1>
+<script src="https://gist.github.com/diegoarri91/b4cd8f7c144b5831671aff522ad67c20.js"></script>
 
-<h2 id="headings-can-be-small-1">Headings can be small</h2>
+<p>In fklearn, we would fit a logistic regression directly by applying its learner function to the training data.</p>
 
-<h3 id="headings-can-be-small-2">Headings can be small</h3>
+<script src="https://gist.github.com/diegoarri91/6263b98ae8579c4f8f281e0d7bf22224.js"></script>
 
-<h4 id="headings-can-be-small-3">Headings can be small</h4>
+<p>The learner returns a predict_function that we call to score new data.</p>
+
+<script src="https://gist.github.com/diegoarri91/b4cd8f7c144b5831671aff522ad67c20.js"></script>
+
+<p>The predict_function takes a DataFrame as an input and returns as output the input DataFrame with an extra “prediction” column that contains the predicted scores.</p>
+
+<p>The predict_function call guarantees that for a given input it will always return the same output by not having any mutable attributes nor depending on any states.</p>
 
 <figure class="highlight"><pre><code class="language-raw" data-lang="raw"># Heading
 ## Heading
@@ -986,10 +991,8 @@ It’s sometimes handy for breaking things up.</p>
 
     <div class="blog-navigation">
         
-            <a class="prev"></a>
+            <a class="prev" href="http://localhost:4000/markdown-extra-components/">&laquo; Markdown Extra Components</a>
         
-        
-            <a class="next" href="http://localhost:4000/markdown-extra-components/">Markdown Extra Components &raquo;</a>
         
     </div>
 
@@ -1002,18 +1005,6 @@ It’s sometimes handy for breaking things up.</p>
         
             
                 
-                    
-                    <h4>Related Posts</h4>
-                    <ul>
-                    
-                    <li class="relatedPost">
-                        <a href="http://localhost:4000/fklearn/">Fklearn for functional machine learning
-                        
-                        </a>
-                    </li>
-                    
-                    
-                
             
                 
             
@@ -1029,6 +1020,9 @@ It’s sometimes handy for breaking things up.</p>
         
             
                 
+                    
+                    <h4>Related Posts</h4>
+                    <ul>
                     
                     <li class="relatedPost">
                         <a href="http://localhost:4000/markdown-extra-components/">Markdown Extra Components
@@ -1058,6 +1052,15 @@ It’s sometimes handy for breaking things up.</p>
         
         
             
+                
+                    
+                    <li class="relatedPost">
+                        <a href="http://localhost:4000/markdown-common-elements/">On Generalized Linear Models
+                        
+                        </a>
+                    </li>
+                    
+                    
                 
             
                 
@@ -1105,7 +1108,7 @@ It’s sometimes handy for breaking things up.</p>
             <!-- If site width is set to normal, you may choose any two share links -->
             <a
                 class="twitter"
-                href="https://twitter.com/intent/tweet?text=http://localhost:4000/markdown-common-elements/ - On Generalized Linear Models by @"
+                href="https://twitter.com/intent/tweet?text=http://localhost:4000/fklearn/ - Fklearn for functional machine learning by @"
             >
                 <i class="fa-brands fa-twitter"></i>
                 <span class="icon-twitter">Tweet</span>
@@ -1120,7 +1123,7 @@ It’s sometimes handy for breaking things up.</p>
                 <span class="icon-facebook-rect">Share</span>
             </a>
 
-            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/markdown-common-elements/&amp;title=On Generalized Linear Models&amp;summary=Markdown summary with different options&amp;source=http://localhost:4000" target="_blank">
+            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/fklearn/&amp;title=Fklearn for functional machine learning&amp;summary=fklearn introduction&amp;source=http://localhost:4000" target="_blank">
                 <i class="fa-brands fa-linkedin"></i>
                 <span class="icon-linkedin">Share</span>
             </a> -->

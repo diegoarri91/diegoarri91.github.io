@@ -1,0 +1,205 @@
+---
+title: "Fklearn for functional machine learning"
+layout: post
+date: 2023-06-14 00:00
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- markdown
+- elements
+star: true
+category: blog
+author: diegoarri91
+description: fklearn introduction
+---
+
+# fklearn for functional machine learning
+
+Machine learning models meant to be used in production need to rely on consistent data pipelines and reproducible predictions. The pipeline when training the model should match the pipelines used to validate our predictions, score unseen data and generate monitorings. Guaranteeing this consistency is not trivial, as these pipelines can involve many (pre-) processing steps and can be executed in different ways (script, Jupyter notebook). Often, exploratory analysis and validations are performed in Jupyter notebooks where the interactive non-sequential evaluation of cells is prone to yield non-reproducible results. For example, inadvertently running the same cell twice will not necessarily yield the same result as objects can be mutated, also affecting the results of other cells.
+
+Instead, functional programming emphasizes the use of pure functions, their outputs are deterministic and depend only on their inputs. They don't have any side effects, they do not mutate values or modify data in place. Following this ideas, fklearn is a library that relies on functional programming to help build machine learning pipelines that emphasize consistency and reproducibility in the ways described above. Moreover, by passing functions as arguments and composing them, we can easily build elaborate but flexible declarative pipelines.
+
+Having said that, fklearn is not about providing new implementations of common machine learning models. fklearn actually depends on scikit-learn and uses scikit-learn's implementations of many models, often acting just as a "functional wrapper" around them. Another interesting distinction is that fklearn uses pandas DataFrame as its main data structure (instead of NumPy's array-like). This allows to leverage pandas capabilities to handle columns with different data types (strings, dates), process data (wrangling, filtering, sorting) and generate useful and meaningful outputs (grouping, aggregating). Let's start with a comparison betwen how we would fit a simple model in scikit-learn and in fklearn.
+
+## Fklearn and Scikit-learn. Learner functions and BaseEstimator
+
+Let's say we have some tabular training data in a pandas DataFrame to which we want to fit a logistic regression. A typical flow in scikit-learn would involve instantiating the logistic regression [estimator](https://scikit-learn.org/stable/glossary.html#term-estimators) and invoking its fit method applied to the training data, setting the estimator parameters.
+
+<script src="https://gist.github.com/diegoarri91/b4cd8f7c144b5831671aff522ad67c20.js"></script>
+
+In fklearn, we would fit a logistic regression directly by applying its learner function to the training data.
+
+<script src="https://gist.github.com/diegoarri91/6263b98ae8579c4f8f281e0d7bf22224.js"></script>
+
+The learner returns a predict_function that we call to score new data.
+
+<script src="https://gist.github.com/diegoarri91/b4cd8f7c144b5831671aff522ad67c20.js"></script>
+
+The predict_function takes a DataFrame as an input and returns as output the input DataFrame with an extra "prediction" column that contains the predicted scores.
+
+The predict_function call guarantees that for a given input it will always return the same output by not having any mutable attributes nor depending on any states.
+
+{% highlight raw %}
+# Heading
+## Heading
+### Heading
+#### Heading
+{% endhighlight %}
+
+---
+
+## Lists
+
+### Ordered list
+
+1. Item 1
+2. A second item
+3. Number 3
+
+{% highlight raw %}
+1. Item 1
+2. A second item
+3. Number 3
+{% endhighlight %}
+
+### Unordered list
+
+* An item
+* Another item
+* Yet another item
+* And there's more...
+
+{% highlight raw %}
+* An item
+* Another item
+* Yet another item
+* And there's more...
+{% endhighlight %}
+
+---
+
+## Paragraph modifiers
+
+### Quote
+
+> Here is a quote. What this is should be self explanatory. Quotes are automatically indented when they are used.
+
+{% highlight raw %}
+> Here is a quote. What this is should be self explanatory.
+{% endhighlight raw %}
+
+---
+
+## URLs
+
+URLs can be made in a handful of ways:
+
+* A named link to [Mark It Down][3].
+* Another named link to [Mark It Down](https://google.com/)
+* Sometimes you just want a URL like <https://google.com/>.
+
+{% highlight raw %}
+* A named link to [MarkItDown][3].
+* Another named link to [MarkItDown](https://google.com/)
+* Sometimes you just want a URL like <https://google.com/>.
+{% endhighlight %}
+
+---
+
+## Horizontal rule
+
+A horizontal rule is a line that goes across the middle of the page.
+It's sometimes handy for breaking things up.
+
+{% highlight raw %}
+---
+{% endhighlight %}
+
+---
+
+## Images
+
+Markdown can also contain images. I'll need to add something here sometime.
+
+{% highlight raw %}
+![Markdowm Image][/image/url]
+{% endhighlight %}
+
+![Markdowm Image][5]
+
+*Figure Caption*?
+
+{% highlight raw %}
+![Markdowm Image][/image/url]
+<figcaption class="caption">Photo by John Doe</figcaption>
+{% endhighlight %}
+
+![Markdowm Image][5]
+<figcaption class="caption">Photo by John Doe</figcaption>
+
+*Bigger Images*?
+
+{% highlight raw %}
+![Markdowm Image][/image/url]{: class="bigger-image" }
+{% endhighlight %}
+
+![Markdowm Image][5]{: class="bigger-image" }
+
+---
+
+## Code
+
+A HTML Example:
+
+{% highlight html %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Just a test</h1>
+</body>
+</html>
+{% endhighlight %}
+
+A CSS Example:
+
+{% highlight css %}
+pre {
+    padding: 10px;
+    font-size: .8em;
+    white-space: pre;
+}
+
+pre, table {
+    width: 100%;
+}
+
+code, pre, tt {
+    font-family: Monaco, Consolas, Inconsolata, monospace, sans-serif;
+    background: rgba(0,0,0,.05);
+}
+{% endhighlight %}
+
+A JS Example:
+
+{% highlight js %}
+// Sticky Header
+$(window).scroll(function() {
+
+    if ($(window).scrollTop() > 900 && !$("body").hasClass('show-menu')) {
+        $('#hamburguer__open').fadeOut('fast');
+    } else if (!$("body").hasClass('show-menu')) {
+        $('#hamburguer__open').fadeIn('fast');
+    }
+
+});
+{% endhighlight %}
+
+[1]: https://daringfireball.net/projects/markdown/
+[2]: https://www.fileformat.info/info/unicode/char/2163/index.htm
+[3]: https://daringfireball.net/projects/markdown/basics
+[4]: https://daringfireball.net/projects/markdown/syntax
+[5]: https://kune.fr/wp-content/uploads/2013/10/ghost-blog.jpg
