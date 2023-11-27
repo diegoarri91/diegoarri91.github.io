@@ -1,8 +1,7 @@
 {% if page.title == "Home"
    or page.title == "Blog"
-   or page.title == "Projects"
    or page.title == "Tags"
-%}{% assign showHeader = true %}{% endif %}
+%}{% assign showHeader = true %}{% else %}{% assign showHeader = false %}{% endif %}
 
 {% if showHeader == true %}
     <header class="header-home {% if site.animation %}animated{% endif %}">
@@ -20,6 +19,10 @@
         <h2 class="description">{{ site.bio }}</h2>
 
         {% include social-links.html %}
+    </header>
+{% else %}
+    <header class="header-home {% if site.animation %}animated{% endif %}">
+        <h1 class="title">{{ page.title }}</h1>
     </header>
 {% endif %}
 
