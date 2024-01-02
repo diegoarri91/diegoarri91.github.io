@@ -21,7 +21,7 @@ resume: true
 resume-external: local
 resume-url: /assets/arribas_cv.pdf
 
-url: https://diegoarri91.github.io/indigo
+url: https://diegoarri91.github.io
 
 permalink: /:title/
 
