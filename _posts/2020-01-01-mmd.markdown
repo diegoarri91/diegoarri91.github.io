@@ -3,7 +3,7 @@ title: "Rescuing neural spike train models from bad MLE"
 layout: post
 date: 2020-01-01 00:00
 tag: jekyll
-image: https://sergiokopplin.github.io/indigo/assets/images/jekyll-logo-light-solid.png
+image: /assets/images/markdown.jpg
 headerImage: true
 projects: true
 hidden: true # don't count this post in blog pagination

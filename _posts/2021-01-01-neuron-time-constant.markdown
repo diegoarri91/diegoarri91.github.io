@@ -3,7 +3,7 @@ title: "Bayesian estimation of time constants in neural data"
 layout: post
 date: 2021-01-01 00:00
 tag: jekyll
-image: https://sergiokopplin.github.io/indigo/assets/images/jekyll-logo-light-solid.png
+image: /assets/images/markdown.jpg
 headerImage: true
 projects: true
 hidden: false # don't count this post in blog pagination
