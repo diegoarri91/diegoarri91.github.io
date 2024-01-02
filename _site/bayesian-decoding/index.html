@@ -14,19 +14,19 @@
 <meta property="og:title" content="Bayesian decoding of neural stimuli" />
 <meta name="author" content="diego.arri" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="How do neurons encode and decode stimuli? In one of my PhD projects, I studied this question using machine learning applied to time series neural data. By fitting generalized linear models to the data, we can predict and understand how neurons map input stimuli to responses. Then by using synthetic responses I used a Bayesian framework to decode stimuli to explore how neurons transmit information. I developed a Python library to fit the models and performed the decoding, including the optimization problem. In this project, I also used methods like linear discriminant analysis, information theory and methods for time series analysis." />
-<meta property="og:description" content="How do neurons encode and decode stimuli? In one of my PhD projects, I studied this question using machine learning applied to time series neural data. By fitting generalized linear models to the data, we can predict and understand how neurons map input stimuli to responses. Then by using synthetic responses I used a Bayesian framework to decode stimuli to explore how neurons transmit information. I developed a Python library to fit the models and performed the decoding, including the optimization problem. In this project, I also used methods like linear discriminant analysis, information theory and methods for time series analysis." />
+<meta name="description" content="Used many machine learning methods together with Bayesian decoding to study how neurons transmit information and map stimuli to responses. I developed a Python library that performs the optimizations needed to fit the models and perform the decoding. [&lt;a href = https://elifesciences.org/articles/80250 target=_blank&gt;Paper&lt;/a&gt;] [&lt;a href = https://github.com/diegoarri91/iclamp-glm target=_blank&gt;Github&lt;/a&gt;]" />
+<meta property="og:description" content="Used many machine learning methods together with Bayesian decoding to study how neurons transmit information and map stimuli to responses. I developed a Python library that performs the optimizations needed to fit the models and perform the decoding. [&lt;a href = https://elifesciences.org/articles/80250 target=_blank&gt;Paper&lt;/a&gt;] [&lt;a href = https://github.com/diegoarri91/iclamp-glm target=_blank&gt;Github&lt;/a&gt;]" />
 <link rel="canonical" href="http://localhost:4000/bayesian-decoding/" />
 <meta property="og:url" content="http://localhost:4000/bayesian-decoding/" />
 <meta property="og:site_name" content="Diego M. Arribas" />
 <meta property="og:image" content="https://sergiokopplin.github.io/indigo/assets/images/jekyll-logo-light-solid.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-01-01T00:00:00+00:00" />
+<meta property="article:published_time" content="2019-01-01T00:00:00-03:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://sergiokopplin.github.io/indigo/assets/images/jekyll-logo-light-solid.png" />
 <meta property="twitter:title" content="Bayesian decoding of neural stimuli" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"diego.arri"},"dateModified":"2021-01-01T00:00:00+00:00","datePublished":"2021-01-01T00:00:00+00:00","description":"How do neurons encode and decode stimuli? In one of my PhD projects, I studied this question using machine learning applied to time series neural data. By fitting generalized linear models to the data, we can predict and understand how neurons map input stimuli to responses. Then by using synthetic responses I used a Bayesian framework to decode stimuli to explore how neurons transmit information. I developed a Python library to fit the models and performed the decoding, including the optimization problem. In this project, I also used methods like linear discriminant analysis, information theory and methods for time series analysis.","headline":"Bayesian decoding of neural stimuli","image":"https://sergiokopplin.github.io/indigo/assets/images/jekyll-logo-light-solid.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/bayesian-decoding/"},"url":"http://localhost:4000/bayesian-decoding/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"diego.arri"},"dateModified":"2019-01-01T00:00:00-03:00","datePublished":"2019-01-01T00:00:00-03:00","description":"Used many machine learning methods together with Bayesian decoding to study how neurons transmit information and map stimuli to responses. I developed a Python library that performs the optimizations needed to fit the models and perform the decoding. [&lt;a href = https://elifesciences.org/articles/80250 target=_blank&gt;Paper&lt;/a&gt;] [&lt;a href = https://github.com/diegoarri91/iclamp-glm target=_blank&gt;Github&lt;/a&gt;]","headline":"Bayesian decoding of neural stimuli","image":"https://sergiokopplin.github.io/indigo/assets/images/jekyll-logo-light-solid.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/bayesian-decoding/"},"url":"http://localhost:4000/bayesian-decoding/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -802,7 +802,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 <h1 class="title">Bayesian decoding of neural stimuli</h1>
 
 <span class="date">
-    <time datetime="01-01-2021">Friday. January 01, 2021</time>
+    <time datetime="01-01-2019">Tuesday. January 01, 2019</time>
      - <span class="reading-time" title="Estimated read time">
     
 
@@ -821,18 +821,12 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
     </div>
 
 
-<p><img src="https://raw.githubusercontent.com/sergiokopplin/indigo/gh-pages/assets/screen-shot.png" alt="Screenshot" /></p>
-
-<p>Example of project - Template - <a href="https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fsergiokopplin.github.io%2Findigo%2F">Link</a>. This is a simple and minimalist template.</p>
-
-<hr />
-
-<p>List</p>
-
-<ul>
-  <li>Element 1</li>
-  <li>Element 2</li>
-</ul>
+<p>How do neurons encode and decode stimuli? In one of my PhD projects, I studied this question using machine 
+learning applied to time series neural data. By fitting generalized linear models to the data, we can predict and 
+understand how neurons map input stimuli to responses. Then by using synthetic responses I used a Bayesian framework to 
+decode stimuli to explore how neurons transmit information. I developed a Python library to fit the models and performed 
+the decoding, including the optimization problem. In this project, I also applied methods like linear discriminant 
+analysis, information theory and methods for time series analysis. The work was published in eLife.</p>
 
 
 
@@ -850,7 +844,55 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
                     <ul>
                     
                     <li class="relatedPost">
-                        <a href="http://localhost:4000/mmd/">MMD
+                        <a href="http://localhost:4000/mcloans/">Forecasting the balance evolution of personal loans for policy design
+                        
+                        </a>
+                    </li>
+                    
+                    
+                
+            
+        
+    
+        
+        
+            
+                
+                    
+                    <li class="relatedPost">
+                        <a href="http://localhost:4000/dorynho/">Predicting the risk of personal loans
+                        
+                        </a>
+                    </li>
+                    
+                    
+                
+            
+        
+    
+        
+        
+            
+                
+                    
+                    <li class="relatedPost">
+                        <a href="http://localhost:4000/neuron-time-constant/">Bayesian estimation of time constants in neural data
+                        
+                        </a>
+                    </li>
+                    
+                    
+                
+            
+        
+    
+        
+        
+            
+                
+                    
+                    <li class="relatedPost">
+                        <a href="http://localhost:4000/mmd/">Rescuing neural spike train models from bad MLE
                         
                         </a>
                     </li>
@@ -934,7 +976,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
                 <span class="icon-facebook-rect">Share</span>
             </a>
 
-            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/bayesian-decoding/&amp;title=Bayesian decoding of neural stimuli&amp;summary=How do neurons encode and decode stimuli? In one of my PhD projects, I studied this question using machine learning applied to time series neural data. By fitting generalized linear models to the data, we can predict and understand how neurons map input stimuli to responses. Then by using synthetic responses I used a Bayesian framework to decode stimuli to explore how neurons transmit information. I developed a Python library to fit the models and performed the decoding, including the optimization problem. In this project, I also used methods like linear discriminant analysis, information theory and methods for time series analysis.&amp;source=http://localhost:4000" target="_blank">
+            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/bayesian-decoding/&amp;title=Bayesian decoding of neural stimuli&amp;summary= Used many machine learning methods together with Bayesian decoding to study how neurons transmit information and map stimuli to responses. I developed a Python library that performs the optimizations needed to fit the models and perform the decoding. [<a href = https://elifesciences.org/articles/80250 target=_blank>Paper</a>] [<a href = https://github.com/diegoarri91/iclamp-glm target=_blank>Github</a>] &amp;source=http://localhost:4000" target="_blank">
                 <i class="fa-brands fa-linkedin"></i>
                 <span class="icon-linkedin">Share</span>
             </a> -->
@@ -948,7 +990,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
 
 <footer class="footer-main">
-    Diego M. Arribas © 2023
+    Diego M. Arribas © 2024
 
     <a class="link" href="http://localhost:4000/feed.xml" target="_blank">
         <i class="fa-solid fa-rss"></i>

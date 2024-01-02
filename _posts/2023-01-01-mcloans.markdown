@@ -1,0 +1,17 @@
+---
+title: "Forecasting the balance evolution of personal loans for policy design"
+layout: post
+date: 2021-01-01 00:00
+tag: jekyll
+image: https://sergiokopplin.github.io/indigo/assets/images/jekyll-logo-light-solid.png
+headerImage: true
+projects: true
+hidden: false # don't count this post in blog pagination
+category: project
+author: diego.arri
+externalLink: false
+link: false
+description: "
+Developed a framework that forecasts the evolution of personal loans to design policies.
+"
+---
